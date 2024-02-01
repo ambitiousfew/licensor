@@ -1,4 +1,4 @@
-package lk_test
+package licensor_test
 
 import (
 	"bytes"
@@ -11,19 +11,19 @@ import (
 
 var _ = Describe("License", func() {
 
-	var privateKey *lk.PrivateKey
-	var wrongKey *lk.PrivateKey
-	var license *lk.License
+	var privateKey *licensor.PrivateKey
+	var wrongKey *licensor.PrivateKey
+	var license *licensor.License
 	var b []byte
 
 	BeforeEach(func() {
 		var err error
 
-		privateKey, err = lk.NewPrivateKey()
+		privateKey, err = licensor.NewPrivateKey()
 		Ω(err).To(BeNil())
 		Ω(privateKey).ToNot(BeNil())
 
-		wrongKey, err = lk.NewPrivateKey()
+		wrongKey, err = licensor.NewPrivateKey()
 		Ω(err).To(BeNil())
 		Ω(privateKey).ToNot(BeNil())
 
@@ -31,7 +31,7 @@ var _ = Describe("License", func() {
 		_, err = rand.Read(b)
 		Ω(err).To(BeNil())
 
-		license, err = lk.NewLicense(privateKey, b)
+		license, err = licensor.NewLicense(privateKey, b)
 		Ω(err).To(BeNil())
 		Ω(license).ToNot(BeNil())
 		ok, err := license.Verify(privateKey.GetPublicKey())
@@ -48,7 +48,7 @@ var _ = Describe("License", func() {
 	It("should test a license with bytes", func() {
 		b2, err := license.ToBytes()
 		Ω(err).To(BeNil())
-		l2, err := lk.LicenseFromBytes(b2)
+		l2, err := licensor.LicenseFromBytes(b2)
 		Ω(err).To(BeNil())
 		ok, err := l2.Verify(privateKey.GetPublicKey())
 		Ω(err).To(BeNil())
@@ -66,7 +66,7 @@ var _ = Describe("License", func() {
 	It("should test a license with b64", func() {
 		b2, err := license.ToB64String()
 		Ω(err).To(BeNil())
-		l2, err := lk.LicenseFromB64String(b2)
+		l2, err := licensor.LicenseFromB64String(b2)
 		Ω(err).To(BeNil())
 		ok, err := l2.Verify(privateKey.GetPublicKey())
 		Ω(err).To(BeNil())
@@ -78,7 +78,7 @@ var _ = Describe("License", func() {
 	It("should test a license with b32", func() {
 		b2, err := license.ToB32String()
 		Ω(err).To(BeNil())
-		l2, err := lk.LicenseFromB32String(b2)
+		l2, err := licensor.LicenseFromB32String(b2)
 		Ω(err).To(BeNil())
 		ok, err := l2.Verify(privateKey.GetPublicKey())
 		Ω(err).To(BeNil())
@@ -90,7 +90,7 @@ var _ = Describe("License", func() {
 	It("should test a license with hex", func() {
 		b2, err := license.ToHexString()
 		Ω(err).To(BeNil())
-		l2, err := lk.LicenseFromHexString(b2)
+		l2, err := licensor.LicenseFromHexString(b2)
 		Ω(err).To(BeNil())
 		ok, err := l2.Verify(privateKey.GetPublicKey())
 		Ω(err).To(BeNil())

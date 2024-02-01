@@ -1,7 +1,7 @@
 # licensor
 
 [![Tests](https://github.com/hyperboloide/lk/actions/workflows/tests.yml/badge.svg)](https://github.com/hyperboloide/lk/actions/workflows/tests.yml)
-[![Go Reference](https://pkg.go.dev/badge/github.com/hyperboloide/lk.svg)](https://pkg.go.dev/github.com/hyperboloide/lk)
+[![Go Reference](https://pkg.go.dev/badge/github.com/hyperboloide/licensor.svg)](https://pkg.go.dev/github.com/hyperboloide/lk)
 [![Go Report Card](https://goreportcard.com/badge/github.com/hyperboloide/lk)](https://goreportcard.com/report/github.com/hyperboloide/lk)
 
 A simple licensing library in Golang, that generates license files containing
@@ -45,7 +45,7 @@ Below is an example of code that generates a license from a private key and a st
 const privateKeyBase32 = "FD7YCAYBAEFXA22DN5XHIYLJNZSXEAP7QIAACAQBANIHKYQBBIAACAKEAH7YIAAAAAFP7AYFAEBP7BQAAAAP7GP7QIAWCBCRKQVWKPT7UJDNP4LB5TXEQMO7EYEGDCE42KVBDNEGRIYIIJFBIWIVB6T6ZTKLSYSGK54DZ5VX6M5SJHBYZU2JXUFXJI25L2JJKJW4RL7UL2XBDT4GKYZ5IS6IWBCN7CWTMVBCBHJMH3RHZ5BVGVAY66MQAEYQEPSS2ANTYZIWXWSGIUJW3MDOO335JK3D4N3IV4L5UTAQMLS5YC7QASCAAUOHTZ5ZCCCYIBNCWBELBMAA===="
 
 // Unmarshal the private key
-privateKey, err := lk.PrivateKeyFromB32String(privateKeyBase32)
+privateKey, err := licensor.PrivateKeyFromB32String(privateKeyBase32)
 if err != nil {
 	log.Fatal(err)
 }
@@ -67,7 +67,7 @@ if err != nil {
 }
 
 // generate your license with the private key and the document
-license, err := lk.NewLicense(privateKey, docBytes)
+license, err := licensor.NewLicense(privateKey, docBytes)
 if err != nil {
 	log.Fatal(err)
 
@@ -93,13 +93,13 @@ const licenseB32 = "FT7YOAYBAEDUY2LDMVXHGZIB76EAAAIDAECEIYLUMEAQUAABAFJAD74EAAAQ
 const publicKeyBase32 = "ARIVIK3FHZ72ERWX6FQ6Z3SIGHPSMCDBRCONFKQRWSDIUMEEESQULEKQ7J7MZVFZMJDFO6B46237GOZETQ4M2NE32C3UUNOV5EUVE3OIV72F5LQRZ6DFMM6UJPELARG7RLJWKQRATUWD5YT46Q2TKQMPPGIA===="
 
 // Unmarshal the public key.
-publicKey, err := lk.PublicKeyFromB32String(publicKeyBase32)
+publicKey, err := licensor.PublicKeyFromB32String(publicKeyBase32)
 if err != nil {
 	log.Fatal(err)
 }
 
 // Unmarshal the customer license.
-license, err := lk.LicenseFromB32String(licenseB32)
+license, err := licensor.LicenseFromB32String(licenseB32)
 if err != nil {
 	log.Fatal(err)
 }
@@ -136,7 +136,7 @@ Bellow is a sample function that generate a key pair, signs a license and verify
 
 ```go
 // create a new Private key:
-privateKey, err := lk.NewPrivateKey()
+privateKey, err := licensor.NewPrivateKey()
 if err != nil {
 	log.Fatal(err)
 
@@ -156,7 +156,7 @@ if err != nil {
 }
 
 // generate your license with the private key and the document:
-license, err := lk.NewLicense(privateKey, docBytes)
+license, err := licensor.NewLicense(privateKey, docBytes)
 if err != nil {
 	log.Fatal(err)
 

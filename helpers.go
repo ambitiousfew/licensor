@@ -1,4 +1,4 @@
-package lk
+package licensor
 
 import (
 	"bytes"

@@ -1,4 +1,4 @@
-package lk_test
+package licensor_test
 
 import (
 	"encoding/json"
@@ -17,7 +17,7 @@ type MyLicence struct {
 // Example_complete creates a new license and validate it.
 func Example_complete() {
 	// create a new Private key:
-	privateKey, err := lk.NewPrivateKey()
+	privateKey, err := licensor.NewPrivateKey()
 	if err != nil {
 		log.Fatal(err)
 
@@ -37,7 +37,7 @@ func Example_complete() {
 	}
 
 	// generate your license with the private key and the document:
-	license, err := lk.NewLicense(privateKey, docBytes)
+	license, err := licensor.NewLicense(privateKey, docBytes)
 	if err != nil {
 		log.Fatal(err)
 
@@ -99,13 +99,13 @@ func Example_licenseGeneration() {
 	}
 
 	// Unmarshal the private key:
-	privateKey, err := lk.PrivateKeyFromB32String(privateKeyBase32)
+	privateKey, err := licensor.PrivateKeyFromB32String(privateKeyBase32)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// generate your license with the private key and the document:
-	license, err := lk.NewLicense(privateKey, docBytes)
+	license, err := licensor.NewLicense(privateKey, docBytes)
 	if err != nil {
 		log.Fatal(err)
 
@@ -135,13 +135,13 @@ func Example_licenseVerification() {
 	const publicKeyBase32 = "ARIVIK3FHZ72ERWX6FQ6Z3SIGHPSMCDBRCONFKQRWSDIUMEEESQULEKQ7J7MZVFZMJDFO6B46237GOZETQ4M2NE32C3UUNOV5EUVE3OIV72F5LQRZ6DFMM6UJPELARG7RLJWKQRATUWD5YT46Q2TKQMPPGIA===="
 
 	// Unmarshal the public key
-	publicKey, err := lk.PublicKeyFromB32String(publicKeyBase32)
+	publicKey, err := licensor.PublicKeyFromB32String(publicKeyBase32)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// Unmarshal the customer license:
-	license, err := lk.LicenseFromB32String(licenseB32)
+	license, err := licensor.LicenseFromB32String(licenseB32)
 	if err != nil {
 		log.Fatal(err)
 	}

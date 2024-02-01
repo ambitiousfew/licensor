@@ -59,7 +59,7 @@ func publicKey() {
 		log.Fatal(err)
 	}
 
-	pk, err := lk.PrivateKeyFromB32String(string(b[:]))
+	pk, err := licensor.PrivateKeyFromB32String(string(b[:]))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -83,7 +83,7 @@ func signLicense() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	pk, err := lk.PrivateKeyFromB32String(string(b[:]))
+	pk, err := licensor.PrivateKeyFromB32String(string(b[:]))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -98,7 +98,7 @@ func signLicense() {
 		log.Fatal(err)
 	}
 
-	l, err := lk.NewLicense(pk, data)
+	l, err := licensor.NewLicense(pk, data)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -120,7 +120,7 @@ func signLicense() {
 }
 
 func genKey() {
-	key, err := lk.NewPrivateKey()
+	key, err := licensor.NewPrivateKey()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -147,7 +147,7 @@ func verifyLicense() {
 		log.Fatal(err)
 	}
 
-	publicKey, err := lk.PublicKeyFromB32String(string(b))
+	publicKey, err := licensor.PublicKeyFromB32String(string(b))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -161,7 +161,7 @@ func verifyLicense() {
 		log.Fatal(err)
 	}
 
-	license, err := lk.LicenseFromB32String(string(b))
+	license, err := licensor.LicenseFromB32String(string(b))
 	if err != nil {
 		log.Fatal(err)
 	}

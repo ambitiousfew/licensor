@@ -1,4 +1,4 @@
-package lk_test
+package licensor_test
 
 import (
 	. "github.com/onsi/ginkgo"
