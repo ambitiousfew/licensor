@@ -3,8 +3,8 @@ package lk_test
 import (
 	"crypto/rand"
 
+	"github.com/ambitiousfew/licensor"
 	"github.com/dchest/uniuri"
-	"github.com/hyperboloide/lk"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

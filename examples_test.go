@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/hyperboloide/lk"
+	"github.com/ambitiousfew/licensor"
 )
 
 type MyLicence struct {

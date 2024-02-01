@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/hyperboloide/lk"
-	"gopkg.in/alecthomas/kingpin.v2"
+	"github.com/alecthomas/kingpin/v2"
+	"github.com/ambitiousfew/licensor"
 )
 
 var (

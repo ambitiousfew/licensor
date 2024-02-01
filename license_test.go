@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"crypto/rand"
 
-	"github.com/hyperboloide/lk"
+	"github.com/ambitiousfew/licensor"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
